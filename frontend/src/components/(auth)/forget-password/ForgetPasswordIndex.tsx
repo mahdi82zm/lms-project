@@ -43,7 +43,7 @@ export default function ForgetPasswordIndex() {
   return (
     <div className="flex w-screen min-h-screen items-center justify-center gap-10 ">
       <div className="lg:w-1/2 h-full flex items-center justify-center  p-8">
-        <form onSubmit={handleSubmit} className="w-1/2" dir="rtl">
+        <form onSubmit={handleSubmit} className="md;w-1/2" dir="rtl">
           <Card padding="xl" radius="md" className=" w-full  max-w-md">
             <Stack>
               <Group justify="center" align="center">

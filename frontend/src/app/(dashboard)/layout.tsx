@@ -1,5 +1,14 @@
+"use client";
+
 import "@mantine/core/styles.css";
-import { MantineProvider } from "@mantine/core";
+import {
+  MantineProvider,
+  AppShell,
+  AppShellHeader,
+  AppShellNavbar,
+  AppShellMain,
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import "../globals.css";
 import SideBar from "@/components/(dashboard)/SideBar";
 import Header from "@/components/(dashboard)/Header";
@@ -9,17 +18,27 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [opended, { toggle }] = useDisclosure();
+
   return (
-    <MantineProvider>
-      <div className="flex flex-col">
-        <Header />
-        <div className="grid grid-cols-5">
-          <div className="col-span-1">
-            <SideBar />
-          </div>
-          <div className="colspan4">{children}</div>
-        </div>
-      </div>
-    </MantineProvider>
+    <AppShell
+      header={{ height: 60 }}
+      navbar={{
+        width: 250,
+        breakpoint: "sm",
+        collapsed: { mobile: !opended },
+      }}
+      padding="md"
+    >
+      <AppShellHeader>
+        <Header opend={opended} toggle={toggle} />
+      </AppShellHeader>
+
+      <AppShellNavbar p="md">
+        <SideBar />
+      </AppShellNavbar>
+
+      <AppShellMain className="bg-[#F4F7FC]">{children}</AppShellMain>
+    </AppShell>
   );
 }

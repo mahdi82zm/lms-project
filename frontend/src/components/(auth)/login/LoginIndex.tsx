@@ -27,8 +27,8 @@ export default function LoginIndex() {
 
   return (
     <div className="flex w-screen min-h-screen items-center justify-center gap-10 ">
-      <div className="lg:w-1/2 h-full flex items-center justify-center  p-8">
-        <form onSubmit={handleSubmit} className="w-1/2 " dir="rtl">
+      <div className="lg:w-1/2 w-full h-full flex items-center justify-center  p-8">
+        <form onSubmit={handleSubmit} className="md:w-1/2 " dir="rtl">
           {" "}
           <Card padding="xl" radius="md" className=" w-full ">
             <Stack>
